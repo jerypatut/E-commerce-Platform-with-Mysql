@@ -1,0 +1,56 @@
+<%- include('./includes/navbar.ejs', { isLoggedIn: isLoggedIn }) %>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Add Product</h2>
+    <form action="/add-product" method="POST" enctype="multipart/form-data" class="shadow p-4 rounded">
+
+        <!-- Nama Produk -->
+        <div class="mb-3">
+            <label for="productname" class="form-label">Name</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="productname" 
+                name="productname" 
+                placeholder="Enter product name" required>
+        </div>
+
+        <!-- Harga -->
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input 
+                type="number" 
+                class="form-control" 
+                id="price" 
+                name="price" 
+                placeholder="Enter product price" required>
+        </div>
+
+        <!-- Gambar -->
+        <div class="mb-3">
+            <label for="img" class="form-label">Product Image</label>
+            <input 
+                type="file" 
+                class="form-control" 
+                id="img" 
+                name="img" 
+                accept="image/*" required>
+        </div>
+
+        <!-- Deskripsi -->
+        <div class="mb-3">
+            <label for="dekskripsi" class="form-label">Description</label>
+            <textarea 
+                class="form-control" 
+                id="dekskripsi" 
+                name="dekskripsi" 
+                placeholder="Enter product description"
+                rows="5" required></textarea>
+        </div>
+
+        <!-- Tombol Submit -->
+        <button type="submit" class="btn btn-success w-100">Add Product</button>
+    </form>
+</div>
+
+<%- include('./includes/footer.ejs') %>

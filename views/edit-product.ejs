@@ -1,0 +1,59 @@
+<%- include('./includes/navbar.ejs', { isLoggedIn: isLoggedIn }) %>
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Edit Product</h2>
+    <form action="/edit-product/<%= product.id %>" method="POST" enctype="multipart/form-data" class="shadow p-4 rounded">
+
+        <!-- Nama Produk -->
+        <div class="mb-3">
+            <label for="productname" class="form-label">Product Name</label>
+            <input 
+                type="text" 
+                class="form-control" 
+                id="productname" 
+                name="productname" 
+                value="<%= product.productname %>"
+                placeholder="Enter product name" >
+        </div>
+
+        <!-- Harga -->
+        <div class="mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input 
+                type="number" 
+                class="form-control" 
+                id="price" 
+                name="price" 
+                value="<%= product.price %>"
+                placeholder="Enter product price" >
+        </div>
+
+        <!-- Gambar -->
+        <div class="mb-3">
+            <label for="img" class="form-label">Product Image</label>
+            <input 
+                type="file" 
+                class="form-control" 
+                id="img" 
+                name="img" 
+                accept="image/*">
+            <small class="form-text text-muted">Leave blank if you don't want to change the image.</small>
+        </div>
+
+        <!-- Deskripsi -->
+        <div class="mb-3">
+            <label for="dekskripsi" class="form-label">Description</label>
+            <textarea 
+                class="form-control" 
+                id="dekskripsi" 
+                name="dekskripsi" 
+                placeholder="Enter product description"
+                rows="5"><%= product.dekskripsi %></textarea>
+        </div>
+
+        <!-- Tombol Submit -->
+        <button type="submit" class="btn btn-success w-100">Save Changes</button>
+    </form>
+</div>
+
+<%- include('./includes/footer.ejs') %>

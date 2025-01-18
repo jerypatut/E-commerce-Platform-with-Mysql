@@ -1,0 +1,7 @@
+MIT License
+
+Copyright (c) 2024 Yeremias Pontianus Sugandri
+
+Dengan ini diberikan izin, tanpa batasan, untuk menggunakan, menyalin, mengubah, menggabungkan, menerbitkan, mendistribusikan, menyetujui sublicensing, dan/atau menjual salinan Perangkat Lunak ini, dan untuk memungkinkan orang lain yang diberikan Perangkat Lunak ini untuk melakukannya, dengan syarat bahwa salinan dari pemberitahuan hak cipta ini dan pemberitahuan izin ini termasuk dalam semua salinan atau bagian substansial dari Perangkat Lunak ini.
+
+PERANGKAT LUNAK INI DIBERIKAN "SEBAGAIMANA ADANYA", TANPA JAMINAN APAPUN, BAIK SECARA TERJELAS MAUPUN TERSIRAT, TERMASUK NAMUN TIDAK TERBATAS PADA JAMINAN TERHADAP KELAYAKAN UNTUK DIPERDAGANGKAN, KESESUAIAN UNTUK TUJUAN TERTENTU, ATAU NON-PELANGGARAN. DALAM HAL APAPUN, PENGARANG ATAU PEMEGANG HAK CIPTA TIDAK BERTANGGUNG JAWAB ATAS KERUSAKAN APA PUN, BAIK DALAM TINDAKAN KONTRAK, TORT, ATAU LAINNYA, YANG TIMBUL DARI, DARI, ATAU BERKAITAN DENGAN PERANGKAT LUNAK INI, PENGGUNAAN ATAU PERJANJIAN LAINNYA.

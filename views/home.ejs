@@ -1,0 +1,38 @@
+<%- include('./includes/navbar.ejs', { isLoggedIn: isLoggedIn }) %>
+
+<div class="container mt-5">
+    <div class="pt-3 card-container">
+        <% if (products.length > 0) { %>
+            <% for (let product of products) { %>
+                <div class="card m-3 custom-card shadow-sm rounded">
+                    <img src="<%= encodeURI('../assets/' + product.img) %>" class="card-img-top" alt="<%= product.productname %>">
+                    <div class="card-body">
+                        <h3 class="card-title"><%= product.productname %></h3>
+                        <h4 class="card-title fw-light"><span>Rp.<%= product.price %></span></h4>
+                        <h4 class="card-title fw-light"><%= product.dekskripsi %></h4>
+
+                        <% if (isLoggedIn === "true") { %>
+                            <div>
+                                <a href="/edit-product/<%= product.id %>" class="btn btn-outline-dark mx-1 mt-4 edit-buttons">
+                                    <i class="bi bi-pencil-fill"></i> Edit
+                                </a>
+                                <a href="/delete-product/<%= product.id %>" class="btn btn-outline-dark mx-1 mt-4 edit-buttons">
+                                    <i class="bi bi-trash-fill"></i> Delete
+                                </a>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
+            <% } %>
+        <% } else { %>
+            <div class="m-5 p-5 text-center">
+                <h2>No products available</h2>
+                <% if (isLoggedIn === "true") { %>
+                    <a href="/add-product" class="btn btn-outline-dark fs-4 my-3">Add Product</a>
+                <% } %>
+            </div>
+        <% } %>
+    </div>
+</div>
+
+<%- include('./includes/footer.ejs') %>

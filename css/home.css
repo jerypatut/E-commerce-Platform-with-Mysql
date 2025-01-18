@@ -1,0 +1,51 @@
+/* Styling untuk gambar dalam card */
+.card-img-top {
+    width: 100%; /* Gambar memenuhi lebar penuh card */
+    height: 250px; /* Sesuaikan tinggi gambar sesuai kebutuhan */
+    object-fit: contain; /* Menjaga proporsi gambar dan memastikan tidak terpotong */
+    object-position: center; /* Memastikan gambar tetap terpusat jika tidak memenuhi area */
+}
+
+/* Card container styling */
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+/* Styling card */
+.card {
+    width: 300px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+/* Efek saat card di-hover */
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* Styling untuk deskripsi */
+.card-body h4.fw-light {
+    font-size: 18px;
+    line-height: 1.5;
+    min-height: 60px;
+    padding-bottom: 15px;
+}
+
+/* Tombol edit dan hapus */
+.edit-buttons {
+    font-size: 20px;
+}
+
+.edit-buttons:hover {
+    color: #28a745;
+}
+
+/* Styling untuk tombol di dalam card */
+.card-body .btn {
+    margin-top: 10px;
+}
