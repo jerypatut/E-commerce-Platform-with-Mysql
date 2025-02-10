@@ -1,16 +1,20 @@
 # E-Commerce Website
 
-Website E-Commerce ini dibangun menggunakan **Node.js**, **Express.js**, dan **EJS** sebagai template engine untuk merender halaman dinamis. Website ini juga menggunakan **MySQL** sebagai database untuk menyimpan data produk, pengguna, dan transaksi.
+This E-Commerce website is built using **Node.js**, **Express.js**, and **EJS** as template engines to render dynamic pages. This website also uses **MySQL** as a database to store product, user, and transaction data.
 
-## Teknologi yang Digunakan
+## Technologies Used
 
-- **Node.js**: Platform JavaScript untuk membangun aplikasi backend yang cepat dan skalabel.
-- **Express.js**: Framework minimalis untuk Node.js yang digunakan untuk menangani routing dan middleware.
-- **EJS (Embedded JavaScript)**: Template engine untuk merender halaman dinamis dengan data yang berasal dari backend.
-- **MySQL**: Database relasional untuk menyimpan data produk, pengguna, dan transaksi.
+- **Node.js**: JavaScript platform for building fast and scalable backend applications.
+- **Express.js**: Minimalist framework for Node.js used to handle routing and middleware.
+- **EJS (Embedded JavaScript)**: Template engine for rendering dynamic pages with data coming from the backend.
+- **MySQL**: Relational database for storing product, user, and transaction data.
 
-## Fitur Utama
+## Key Features
 
-- **Pengelolaan Produk**: Menambahkan, mengedit, dan menghapus produk dalam website.
-- **Autentikasi Pengguna**: Pengguna dapat mendaftar, login, dan mengelola akun mereka.
+- **Product Management**: Add, edit, and delete products on the website.
+- **User Authentication**: Users can register, login, and manage their accounts.
+
 ![example Apps](./8.mysql.png)
+
+```
+## by @jerypatut
