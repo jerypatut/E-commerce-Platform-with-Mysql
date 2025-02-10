@@ -16,5 +16,5 @@ This E-Commerce website is built using **Node.js**, **Express.js**, and **EJS** 
 
 ![example Apps](./8.mysql.png)
 
-```
-## by @jerypatut
+
+by @jerypatut
