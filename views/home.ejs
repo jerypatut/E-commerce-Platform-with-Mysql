@@ -1,38 +1,101 @@
-<%- include('./includes/navbar.ejs', { isLoggedIn: isLoggedIn }) %>
-
-<div class="container mt-5">
-    <div class="pt-3 card-container">
-        <% if (products.length > 0) { %>
-            <% for (let product of products) { %>
-                <div class="card m-3 custom-card shadow-sm rounded">
-                    <img src="<%= encodeURI('../assets/' + product.img) %>" class="card-img-top" alt="<%= product.productname %>">
-                    <div class="card-body">
-                        <h3 class="card-title"><%= product.productname %></h3>
-                        <h4 class="card-title fw-light"><span>Rp.<%= product.price %></span></h4>
-                        <h4 class="card-title fw-light"><%= product.dekskripsi %></h4>
-
-                        <% if (isLoggedIn === "true") { %>
-                            <div>
-                                <a href="/edit-product/<%= product.id %>" class="btn btn-outline-dark mx-1 mt-4 edit-buttons">
-                                    <i class="bi bi-pencil-fill"></i> Edit
-                                </a>
-                                <a href="/delete-product/<%= product.id %>" class="btn btn-outline-dark mx-1 mt-4 edit-buttons">
-                                    <i class="bi bi-trash-fill"></i> Delete
-                                </a>
-                            </div>
-                        <% } %>
-                    </div>
-                </div>
-            <% } %>
-        <% } else { %>
-            <div class="m-5 p-5 text-center">
-                <h2>No products available</h2>
-                <% if (isLoggedIn === "true") { %>
-                    <a href="/add-product" class="btn btn-outline-dark fs-4 my-3">Add Product</a>
-                <% } %>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Product List</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .card {
+      max-width: 600px;
+      margin: auto;
+    }
+    .image-preview {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <%- include('includes/navbar.ejs', { isLoggedIn: isLoggedIn }) %>
+  <div class="container">
+    <div class="row pt-3">
+      <% if (products.length > 0) { %>
+        <% products.forEach(product => { %>
+          <div class="col-md-3 col-sm-6 mb-4">
+            <div class="card shadow h-100">
+              <div class="image-container">
+                <img src="/uploads/<%= product.img %>" class="card-img-top" alt="<%= product.productname %>">
+              </div>
+              <div class="card-body d-flex flex-column">
+                <h5 class="card-title text-center"><%= product.productname %></h5>
+                <p class="text-success fw-bold text-center">Rp<%= product.price %></p>
+                <p class="text-muted desc-truncate mb-2" id="desc-<%= product.id %>">
+                  <%= product.deskripsi %>
+                </p>
+                <a href="#" class="text-primary text-decoration-none mt-auto see-more d-none" data-id="<%= product.id %>">Lihat Selengkapnya</a>
+              
+                  <div class="d-flex justify-content-center">
+                    <% if (isLoggedIn === "true") { %>
+                    <a href="/edit-product/<%= product.id %>" class="btn btn-outline-dark mx-1 mt-4">
+                      <i class="bi bi-pencil-square"></i>
+                    </a>
+                    <form action="/delete-product/<%= product.id %>" method="DELETE" style="display: inline;">
+                      <button type="submit" class="btn btn-outline-dark mx-1 mt-4" onclick="return confirm('Yakin ingin menghapus produk ini?')">
+                        <i class="bi bi-trash-fill"></i>
+                      </button>
+                    </form>
+                    <% } %>
+                  </div>
+              </div>
             </div>
-        <% } %>
+          </div>
+        <% }) %>
+      <% } else { %>
+        <div class="container d-flex flex-column justify-content-center align-items-center vh-100">
+          <div class="text-center">
+            <p class="fs-4 text-muted">No products available.</p>
+            <% if (isLoggedIn === "true") { %>
+            <a href="add-product" class="btn btn-primary">Add Product</a>
+            <% } %>
+          </div>
+        </div>
+      <% } %>
     </div>
-</div>
+  </div>
 
-<%- include('./includes/footer.ejs') %>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('.desc-truncate').forEach(desc => {
+        const maxChars = 100;
+        const fullText = desc.innerText.trim();
+
+        if (fullText.length > maxChars) {
+          const shortText = fullText.substring(0, maxChars) + "...";
+          desc.innerText = shortText;
+
+          const seeMoreBtn = desc.nextElementSibling;
+          seeMoreBtn.classList.remove('d-none');
+
+          seeMoreBtn.addEventListener('click', function (event) {
+            event.preventDefault();
+            const isExpanded = desc.dataset.expanded === "true";
+
+            desc.innerText = isExpanded ? shortText : fullText;
+            this.textContent = isExpanded ? 'Lihat Selengkapnya' : 'Lihat Lebih Sedikit';
+            desc.dataset.expanded = !isExpanded;
+          });
+        }
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

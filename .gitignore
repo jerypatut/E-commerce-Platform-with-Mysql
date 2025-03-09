@@ -1,2 +1,13 @@
+# Node.js (backend & frontend)
+.env
 node_modules/
-/database/*.sql
+package-lock.json
+# Logs & temp files
+logs/
+*.log
+npm-debug.log*
+
+# VSCode settings & system files
+.vscode/
+.DS_Store
+Thumbs.db
